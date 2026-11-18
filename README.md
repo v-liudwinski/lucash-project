@@ -10,6 +10,12 @@ npm run dev      # http://localhost:5173
 npm run build    # збірка в dist/
 ```
 
+## Хостинг
+
+Cloudflare Pages, підключений до GitHub: кожен push у `main` автоматично деплоїть сайт.
+Налаштування збірки: команда `npm run build`, тека `dist`. Версію Node задає `.node-version`.
+Глибокі посилання (`/knyha/...`) працюють завдяки SPA-режиму Pages (у `dist` немає `404.html`).
+
 ## Стек
 
 React 19 + TypeScript + Vite, react-router, Leaflet (react-leaflet), шрифти Cormorant Garamond і Lora.
