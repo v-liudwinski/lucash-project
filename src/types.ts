@@ -6,6 +6,7 @@ export type EpisodeKind =
   | 'home'
   | 'meeting'
   | 'meta'
+  | 'comic'
 
 export interface Place {
   id: string
@@ -28,6 +29,8 @@ export interface Journey {
   title: string
   subtitle: string
   color: string
+  /** Куди повертається маршрут після останнього розділу */
+  endPlace?: string
 }
 
 export interface Part {

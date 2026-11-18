@@ -9,12 +9,28 @@ export const kindLabel: Record<EpisodeKind, string> = {
   home: 'Удома',
   meeting: 'Зустріч',
   meta: 'Гра з читачем',
+  comic: 'Кумедна пригода',
 }
 
 export const roman = (n: number) => ['I', 'II', 'III', 'IV'][n - 1] ?? String(n)
 
-export const chapterLabel = (chapters: string) =>
-  /[–,-]/.test(chapters) ? `розділи ${chapters}` : `розділ ${chapters}`
+const ROMAN: [number, string][] = [
+  [50, 'L'],
+  [40, 'XL'],
+  [10, 'X'],
+  [9, 'IX'],
+  [5, 'V'],
+  [4, 'IV'],
+  [1, 'I'],
+]
+
+export function toRoman(n: number) {
+  let out = ''
+  for (const [v, s] of ROMAN) while (n >= v) (out += s), (n -= v)
+  return out
+}
+
+export const chapterLabel = (chapters: string) => `розділ ${toRoman(Number(chapters))}`
 
 interface Props {
   book: Book

@@ -213,8 +213,8 @@ function IntroCard({
             {plural(book.chapterCount, 'розділ', 'розділи', 'розділів')}
           </li>
           <li>
-            <b>{book.episodes.length}</b>
-            {plural(book.episodes.length, 'епізод', 'епізоди', 'епізодів')}
+            <b>{book.characters.length}</b>
+            {plural(book.characters.length, 'персонаж', 'персонажі', 'персонажів')}
           </li>
           <li>
             <b>{book.places.length}</b>

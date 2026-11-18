@@ -22,9 +22,10 @@ function Camera({ target, bounds }: { target: Place | null; bounds: L.LatLngBoun
 
   useEffect(() => {
     // Перший показ — без анімації, щоб не конфліктувати з початковим розміщенням мапи
-    const animate = !first.current
-    first.current = false
     const size = map.getSize()
+    // Прихована або ще не розміщена мапа: анімація дала б NaN-координати
+    const animate = !first.current && size.x > 0 && size.y > 0
+    first.current = false
     const container = map.getContainer().getBoundingClientRect()
     const card = map.getContainer().parentElement?.querySelector('.floating-card')?.getBoundingClientRect()
 
@@ -104,6 +105,12 @@ export default function PlotMap({ book, activeIndex, visible, filtering, journey
           if (prev && prev.pos[0] === place.lat && prev.pos[1] === place.lng) return
           pts.push({ index, pos: ll(place) })
         })
+        // Повернення додому після останнього розділу виїзду
+        const end = j.endPlace && placeById.get(j.endPlace)
+        const last = pts[pts.length - 1]
+        if (end && last && (last.pos[0] !== end.lat || last.pos[1] !== end.lng)) {
+          pts.push({ index: last.index + 0.5, pos: ll(end) })
+        }
         return { journey: j, pts }
       }),
     [book, placeById],

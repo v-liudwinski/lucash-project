@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import type { Book } from '../types'
-import { chapterLabel, roman } from './EpisodeCard'
+import { chapterLabel } from './EpisodeCard'
 
 export type Tab = 'plot' | 'characters' | 'places'
 
@@ -150,7 +150,7 @@ export default function Sidebar(p: Props) {
                                 <span className="ep-item__text">
                                   <span className="ep-item__title">{e.title}</span>
                                   <span className="ep-item__ch">
-                                    {roman(e.part)}, {chapterLabel(e.chapters)}
+                                    {chapterLabel(e.chapters)}
                                   </span>
                                 </span>
                               </button>
