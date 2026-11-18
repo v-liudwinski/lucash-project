@@ -137,7 +137,7 @@ export default function EpisodeCard(p: Props) {
           ←
         </button>
         <button className="btn btn--play" onClick={p.onTogglePlay} title="Автоматична подорож (пробіл)">
-          {p.playing ? '❚❚ Пауза' : '▶ Подорож'}
+          {p.playing ? '❚❚ Пауза' : '▶︎ Подорож'}
         </button>
         <button className="icon-btn" onClick={p.onNext} disabled={!p.hasNext} title="Наступний (→)">
           →

@@ -246,7 +246,7 @@ function IntroCard({
           Почати з першого розділу
         </button>
         <button className="btn btn--play" onClick={onPlay}>
-          ▶ Подорож
+          {'▶︎ Подорож'}
         </button>
       </footer>
     </article>

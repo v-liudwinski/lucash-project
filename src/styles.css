@@ -935,7 +935,8 @@ a.book-card:hover .cover {
 }
 
 .episode-card__scroll {
-  flex: 1;
+  /* база auto: картка росте під вміст (Safari стискав flex: 1 до нуля), max-height обмежує */
+  flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
   padding: 22px 24px 18px;
@@ -1343,7 +1344,8 @@ a.book-card:hover .cover {
     right: 8px;
     bottom: 8px;
     width: auto;
-    max-height: 54%;
+    height: auto;
+    max-height: 58%;
     border-radius: 16px;
   }
   .episode-card__scroll {
